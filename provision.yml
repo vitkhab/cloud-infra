@@ -20,4 +20,25 @@
       name: "{{ item }}"
       state: present
     loop: "{{ basic_packages }}"
+
+  - name: Enable vim plugins
+    uri:
+      url: https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      dest: /root/.vim/autoload/plug.vim
+
+  - name: Install vim plugins
+    git:
+      repo: "{{ item }}"
+      dest: /root/.vim/bundle/nerdtree
+      update: no
+    loop:
+    - https://github.com/scrooloose/nerdtree.git
+
+  - name: Setup vimrc
+    copy:
+      src: vimrc
+      dest: /root/.vimrc
+      owner: root
+      group: root
+      mode: "0644"
 ...
