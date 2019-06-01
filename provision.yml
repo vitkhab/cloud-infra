@@ -5,5 +5,5 @@
     authorized_key:
       user: root
       key: "{{ item }}"
-    loop: ssh_keys
+    loop: "{{ ssh_keys }}"
 ...
