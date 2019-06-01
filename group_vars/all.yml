@@ -2,7 +2,7 @@ ansible_pull_repo: "https://github.com/vitkhab/cloud-infra.git"
 
 basic_packages:
 - mosh
-- nvim
+- neovim
 - docker.io
 
 ssh_keys:
