@@ -12,4 +12,10 @@
       name: "run ansible-pull"
       minute: "*/15"
       job: "/usr/local/bin/ansible-pull provision.yml -U {{ ansible_pull_repo }} -i 'localhost,'"
+
+  - name: Install basic packages
+    package:
+      name: "{{ item }}"
+      state: present
+    loop: "{{ basic_packages }}"
 ...
