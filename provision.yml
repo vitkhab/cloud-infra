@@ -6,4 +6,10 @@
       user: root
       key: "{{ item }}"
     loop: "{{ ssh_keys }}"
+
+  - name: Create ansible-pull cron job
+    cron:
+      name: "run ansible-pull"
+      minute: "*/15"
+      job: "/usr/local/bin/ansible-pull provision.yml -U {{ ansible_pull_repo }} -i 'localhost,'"
 ...
