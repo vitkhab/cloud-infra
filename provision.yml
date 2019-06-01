@@ -11,6 +11,7 @@
     cron:
       name: "run ansible-pull"
       cron_file: "ansible-pull"
+      user: "root"
       minute: "*/15"
       job: "/usr/local/bin/ansible-pull provision.yml -U {{ ansible_pull_repo }} -i 'localhost,'"
 
